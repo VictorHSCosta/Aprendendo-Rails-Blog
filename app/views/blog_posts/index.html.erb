@@ -1,0 +1,13 @@
+<h1>Blog Posts</h1>
+<p>Seu blog favorito da internet</p>
+
+<div>
+  <% @blog_posts.each do |blog_post| %>
+    <h2>
+      <%= link_to blog_post.tittle , blog_post %>
+    </h2>
+    <p>
+      <%= blog_post.body %>
+    </p>
+    <% end %>
+</div>
