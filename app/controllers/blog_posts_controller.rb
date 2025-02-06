@@ -1,5 +1,14 @@
 class BlogPostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  
   before_action :set_blog_post , only: [ :show, :edit, :update, :destroy]
+
+
+  def authenticate_user
+    if !user_signed_in?
+      redirect_to root_path, alert: "You need to sign in or sign up before continuing."
+    end
+  end
   def index
     @blog_posts = BlogPost.all
   end

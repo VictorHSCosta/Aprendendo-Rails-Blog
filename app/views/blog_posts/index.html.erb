@@ -1,14 +1,20 @@
-<h1>Blog Posts</h1>
-<p>Seu blog favorito da internet</p>
+<%= link_to "New Blog" , new_blog_post_path if user_signed_in? %>
 
-<div>
-  <% @blog_posts.each do |blog_post| %>
-    <h2>
-      <%= link_to blog_post.tittle , blog_post %>
-    </h2>
-    <p>
-      <%= blog_post.body %>
-    </p>
-    
-  <% end %>
-</div>
+<main class="flex flex-col items-center">
+  <h1 class="font-bold text-5xl my-10">Blog Posts</h1>
+  <p class="text-2xl">Seu blog favorito da internet</p>
+
+
+  <ul class="flex flex-col items-center mt-10">
+    <% @blog_posts.each do |blog_post| %>
+      <li clas="border border-gray-300 p-4 my-10">
+        <h2 class="font-bold text-2xl">
+          <%= link_to blog_post.tittle , blog_post %>
+        </h2>
+        <p>
+          <%= blog_post.body %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+</main>
