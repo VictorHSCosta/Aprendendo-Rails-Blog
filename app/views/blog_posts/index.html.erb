@@ -7,6 +7,16 @@
 
   <ul class="flex flex-col items-center mt-10">
     <% @blog_posts.each do |blog_post| %>
+      <% if blog_post.draft? %>
+        <li class="flex justify-center">
+          <p class="text-2xl">Draft</p>
+        </li>
+      <% end %>
+      <% if blog_post.scheduled?%>
+        <div class="flex justify-center bg-green-900 p-10 m-4">
+          <p class="text-2xl text-teal-400">Scheduled</p>
+        </div>
+      <% end %>
       <li clas="border border-gray-300 p-4 my-10">
         <h2 class="font-bold text-2xl">
           <%= link_to blog_post.tittle , blog_post %>

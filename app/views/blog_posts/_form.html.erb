@@ -1,20 +1,31 @@
-<%= form_with model: @blog_post do |form| %>
-  <% if form.object.errors.any? %>
-    <div >
-      <% form.object.errors.full_messages.each do |message|%>
-        <p><%= message %></p>
-      <%end%> 
+<div class="flex justify-center">
+
+  <%= form_with model: @blog_post do |form| %>
+    <% if form.object.errors.any? %>
+      <div >
+        <% form.object.errors.full_messages.each do |message|%>
+          <p><%= message %></p>
+        <%end%> 
+      </div>
+      <% end %>
+    <div>
+      <%= form.label :tittle %>
+        <%= form.text_field :tittle %>
     </div>
-    <% end %>
-  <div>
-    <%= form.label :tittle %>
-      <%= form.text_field :tittle %>
-  </div>
-  <div>
-    <%= form.label :body %>
-      <%= form.text_area :body %>
-  </div>
+    <div>
+      <%= form.label :body %>
+        <%= form.text_area :body %>
+    </div>
 
-  <%= form.button %>
+    <div>
+      <%= form.label :published_at, class: "block text-sm font-medium text-gray-700" %>
+      <%= form.datetime_select :published_at , class:""%>
+    </div>
 
-<% end %>
+
+    <%= form.button %>
+
+  <% end %>
+
+
+</div>

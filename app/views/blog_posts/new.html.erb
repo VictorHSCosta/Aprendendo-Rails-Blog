@@ -1,5 +1,10 @@
-<%=  link_to "Back" , blog_posts_path %>
+<div class="flex justify-center">
 
-<h1>Create a new comment in own communit</h1>
+  <%=  link_to "Back" , blog_posts_path %>
 
-<%= render partial: "form", locals: { blog_post: @blog_post } %>
+  <h1>Create a new comment in own communit</h1>
+
+  <%= render partial: "form", locals: { blog_post: @blog_post } %>
+
+
+</div>
